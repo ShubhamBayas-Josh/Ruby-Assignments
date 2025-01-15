@@ -3,12 +3,9 @@ def find_ip_class(ip)
   if octets.length != 4
     return "Invalid IP address"
   end
-    
-  octets.each do |i|
-    if !(0..255).to_a.include?(i.to_i)
-      puts "IP Invalid"
-      return nil
-    end
+
+  if !ip.match(/^(\d{1,3}\.){3}\d{1,3}$/) || octets.any? { |i| i.to_i < 0 || i.to_i > 255 }
+    return "Invalid IP address"
   end
 
   first_octet = octets[0].to_i
@@ -31,5 +28,3 @@ end
 puts "Enter an IP address:"
 ip_address = gets.chomp
 puts "IP Class: #{find_ip_class(ip_address)}"
-
-
