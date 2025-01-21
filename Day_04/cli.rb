@@ -22,7 +22,7 @@ class CLIApplication # rubocop:disable Metrics/ClassLength
     end
   end
 
-  def main
+  def start_game
     loop do
       system('clear')
       display_menu
@@ -123,4 +123,4 @@ class CLIApplication # rubocop:disable Metrics/ClassLength
 end
 
 # Running the CLI application.
-CLIApplication.new.main
+CLIApplication.new.start_game
